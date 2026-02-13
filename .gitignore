@@ -1,0 +1,15 @@
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore dataset checkpoints (temporary files)
+*checkpoint.csv
+*checkpoint.txt
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Optional: Ignore large model weights if any
+*.ckpt
+*.pt
+*.h5
