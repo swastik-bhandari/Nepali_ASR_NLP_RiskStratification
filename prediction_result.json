@@ -1,0 +1,18 @@
+{
+  "audio_file": "healthvoice.mp3",
+  "detected_language": "ne",
+  "raw_transcription": "मलाई साद दिन देखि जरो आई रहे छा।",
+  "normalized_text": "मलाइ साद दिन दएखि जरओ आइ रहए छा",
+  "tokens_stemmed": [
+    "साद",
+    "दिन",
+    "दएखि",
+    "जरओ",
+    "आइ",
+    "रहए",
+    "छा"
+  ],
+  "model_input": "साद दिन दएखि जरओ आइ रहए छा",
+  "prediction": "high",
+  "description": "Urgent — immediate medical attention required"
+}

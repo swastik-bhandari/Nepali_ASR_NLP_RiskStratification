@@ -1,0 +1,14 @@
+{
+  "svm": {
+    "accuracy": 0.7447,
+    "weighted_f1": 0.7442,
+    "cv_mean": 0.7004,
+    "cv_std": 0.0251
+  },
+  "ridge": {
+    "accuracy": 0.6099,
+    "weighted_f1": 0.6,
+    "cv_mean": 0.5656,
+    "cv_std": 0.0401
+  }
+}

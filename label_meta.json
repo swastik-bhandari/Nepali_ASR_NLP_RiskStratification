@@ -1,0 +1,24 @@
+{
+  "model": "LinearSVC",
+  "feature": "TF-IDF (unigram+bigram, min_df=2, sublinear_tf=True)",
+  "input_field": "tokens_stemmed joined with spaces",
+  "classes": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "label2int": {
+    "low": 0,
+    "medium": 1,
+    "high": 2
+  },
+  "int2label": {
+    "0": "low",
+    "1": "medium",
+    "2": "high"
+  },
+  "trained_on": 705,
+  "eval_accuracy": 0.7447,
+  "eval_weighted_f1": 0.7442,
+  "how_to_load": "import pickle\nmodel = pickle.load(open('svm_model.pkl', 'rb'))\nmodel.predict(['your normalized stemmed text here'])"
+}

@@ -1,0 +1,69 @@
+
+=================================================================
+VERIFICATION REPORT
+=================================================================
+
+[1] NORMALIZATION SANITY CHECKS
+  ✅  normalize('उनलाई') = 'उनलाइ'  (expected 'उनलाइ')
+  ✅  normalize('संग') = 'सग'  (expected 'सग')
+  ✅  normalize('हरू') = 'हरु'  (expected 'हरु')
+  ✅  normalize('बाट') = 'बाट'  (expected 'बाट')
+  ✅  normalize('भितिर') = 'भितिर'  (expected 'भितिर')
+  ✅  normalize('को') = 'कओ'  (expected 'कओ')
+  ✅  normalize('ले') = 'लए'  (expected 'लए')
+  ✅  normalize('मा') = 'मा'  (expected 'मा')
+  → All normalization checks passed ✅
+
+[2] STOPWORD REMOVAL CHECKS
+  ✅  ['सास', 'र', 'कमजोरि'] → ['सास', 'कमजोरि']  (expected ['सास', 'कमजोरि'])
+  ✅  ['उनलाइ', 'ज्बरओ', 'छ'] → ['ज्बरओ']  (expected ['ज्बरओ'])
+  ✅  ['हल्का', 'बान्ता', 'छ'] → ['हल्का', 'बान्ता']  (expected ['हल्का', 'बान्ता'])
+  → All stopword checks passed ✅
+
+[3] SUFFIX STRIPPING CHECKS
+  ✅  strip('सरिरबाट') → root='सरिर' sfx='बाट'  (expected root='सरिर' sfx='बाट')
+  ✅  strip('उनलाइ') → root='उन' sfx='लाइ'  (expected root='उन' sfx='लाइ')
+  ✅  strip('बिहानदएखि') → root='बिहान' sfx='दएखि'  (expected root='बिहान' sfx='दएखि')
+  ✅  strip('समस्यासग') → root='समस्या' sfx='सग'  (expected root='समस्या' sfx='सग')
+  ✅  strip('छाला') → root='छाला' sfx=None  (expected root='छाला' sfx=None)
+  → All suffix checks passed ✅
+
+[4] FULL ROW WALKTHROUGH (first 3 sentences)
+
+  [high] शरीरबाट निरन्तर रगत बगेको रिपोर्ट गरिएको छ
+    normalized  : सरिरबाट निरन्तर रगत बगएकओ रिपओर्ट गरिएकओ छ
+    tokens      : ['सरिरबाट', 'निरन्तर', 'रगत', 'बगएकओ', 'रिपओर्ट', 'गरिएकओ', 'छ']
+    no_stopwords: ['सरिरबाट', 'निरन्तर', 'रगत', 'बगएकओ', 'रिपओर्ट']
+    stemmed     : ['सरिर', 'निरन्तर', 'रगत', 'बगए', 'रिपओर्ट']
+
+  [medium] थोरै कम पिसाब र कम उमंगे
+    normalized  : थओरऐ कम पिसाब र कम उमगए
+    tokens      : ['थओरऐ', 'कम', 'पिसाब', 'र', 'कम', 'उमगए']
+    no_stopwords: ['थओरऐ', 'कम', 'पिसाब', 'कम', 'उमगए']
+    stemmed     : ['थओरऐ', 'कम', 'पिसाब', 'कम', 'उमगए']
+
+  [medium] अलि कम तौल र बराबर वृद्धिमा कमी
+    normalized  : अलि कम तऔल र बराबर बरिद्धिमा कमि
+    tokens      : ['अलि', 'कम', 'तऔल', 'र', 'बराबर', 'बरिद्धिमा', 'कमि']
+    no_stopwords: ['अलि', 'कम', 'तऔल', 'बराबर', 'बरिद्धिमा', 'कमि']
+    stemmed     : ['अलि', 'कम', 'तऔल', 'बराबर', 'बरिद्धि', 'कमि']
+
+[5] CORPUS STATISTICS
+  Sentences              : 705
+  Tokens (raw)           : 7209
+  Tokens (after SW rm)   : 5745  (20.3% removed)
+  Tokens (after stemming): 5745
+  Unique types (raw)     : 1589
+  Unique types (stemmed) : 1350
+  Vocab size (w/ special): 1352
+  Stopwords used         : 194
+  Suffix rules used      : 112
+
+=================================================================
+OUTPUT FILES
+=================================================================
+  normalized_stopwords.json            4,436 bytes
+  normalized_suffixes.json             2,782 bytes
+  pipeline_dataset.csv                 604,640 bytes
+  token_freq.csv                       74,907 bytes
+  vocab.json                           92,384 bytes
